@@ -6,6 +6,7 @@ import androidx.room3.PrimaryKey
 data class Usuario(
     @PrimaryKey
     val email: String,
+    val idUsuario: Int,
     val nombre: String,
     @ColumnInfo(name = "fecha_registro")
     val fechaRegistro: Long = System.currentTimeMillis(),

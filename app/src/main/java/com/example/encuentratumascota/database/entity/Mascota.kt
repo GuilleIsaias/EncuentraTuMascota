@@ -9,7 +9,7 @@ import androidx.room3.PrimaryKey
     foreignKeys = [
         ForeignKey(
             entity = Usuario::class,
-            parentColumns = ["email"],
+            parentColumns = ["idUsuario"],
             childColumns = ["id_usuario"],
             onDelete = ForeignKey.CASCADE
         )
@@ -21,7 +21,7 @@ data class Mascota(
     @ColumnInfo(name = "id_mascota")
     val idMascota: Int = 0,
     @ColumnInfo(name = "id_usuario")
-    val idUsuario: String,
+    val idUsuario: Int,
     val nombre: String,
     val especie: String,
     val raza: String,
