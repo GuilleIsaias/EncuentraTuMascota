@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UsuarioDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insertar(usuario: Usuario)
 
     @Update
@@ -19,6 +19,12 @@ interface UsuarioDao {
 
     @Query("SELECT * FROM usuarios WHERE email = :email LIMIT 1")
     suspend fun obtenerPorEmail(email: String): Usuario?
+
+    @Query("SELECT * FROM usuarios WHERE id_usuario = :idUsuario LIMIT 1")
+    suspend fun obtenerPorId(idUsuario: Int): Usuario?
+
+    @Query("SELECT MAX(id_usuario) FROM usuarios")
+    suspend fun obtenerUltimoId(): Int?
 
     @Query("SELECT * FROM usuarios")
     fun obtenerTodos(): Flow<List<Usuario>>

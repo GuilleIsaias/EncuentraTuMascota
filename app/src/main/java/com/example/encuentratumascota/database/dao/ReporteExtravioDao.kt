@@ -19,7 +19,7 @@ interface ReporteExtravioDao {
     @Query("SELECT * FROM reporte_extravio WHERE estado = 'ACTIVO' ORDER BY fecha_hora DESC")
     fun obtenerActivos(): Flow<List<ReporteExtravio>>
 
-    @Query("SELECT * FROM reporte_extravio WHERE id_usuario = :emailUsuario ORDER BY fecha_hora DESC")
+    @Query("SELECT * FROM reporte_extravio WHERE id_usuario = :idUsuario ORDER BY fecha_hora DESC")
     fun obtenerPorUsuario(emailUsuario: String): Flow<List<ReporteExtravio>>
 
     @Query("SELECT * FROM reporte_extravio WHERE id_extravio = :idExtravio LIMIT 1")
