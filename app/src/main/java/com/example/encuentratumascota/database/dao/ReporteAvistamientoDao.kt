@@ -16,5 +16,5 @@ interface ReporteAvistamientoDao {
     fun obtenerPorExtravio(idExtravio: Int): Flow<List<ReporteAvistamiento>>
 
     @Query("SELECT * FROM reporte_avistamiento WHERE id_usuario = :idUsuario ORDER BY fecha_hora DESC")
-    fun obtenerPorUsuario(emailUsuario: String): Flow<List<ReporteAvistamiento>>
+    fun obtenerPorUsuario(idUsuario: String): Flow<List<ReporteAvistamiento>>
 }

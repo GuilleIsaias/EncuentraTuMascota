@@ -20,7 +20,7 @@ interface ReporteExtravioDao {
     fun obtenerActivos(): Flow<List<ReporteExtravio>>
 
     @Query("SELECT * FROM reporte_extravio WHERE id_usuario = :idUsuario ORDER BY fecha_hora DESC")
-    fun obtenerPorUsuario(emailUsuario: String): Flow<List<ReporteExtravio>>
+    fun obtenerPorUsuario(idUsuario: String): Flow<List<ReporteExtravio>>
 
     @Query("SELECT * FROM reporte_extravio WHERE id_extravio = :idExtravio LIMIT 1")
     suspend fun obtenerPorId(idExtravio: Int): ReporteExtravio?

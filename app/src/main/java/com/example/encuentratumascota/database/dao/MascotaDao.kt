@@ -17,7 +17,7 @@ interface MascotaDao {
     suspend fun eliminar(mascota: Mascota)
 
     @Query("SELECT * FROM mascota WHERE id_usuario = :idUsuario ORDER BY nombre ASC")
-    fun obtenerPorUsuario(emailUsuario: String): Flow<List<Mascota>>
+    fun obtenerPorUsuario(idUsuario: String): Flow<List<Mascota>>
 
     @Query("SELECT * FROM mascota WHERE id_mascota = :idMascota LIMIT 1")
     suspend fun obtenerPorId(idMascota: Int): Mascota?
